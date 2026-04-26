@@ -182,4 +182,4 @@ yarn dev
 
 ## Grant
 
-Built for the [SolAUDD Grant Program](https://superteam.fun/earn) — production-ready Solana infrastructure using AUDD as Australia's on-chain digital dollar.
+Supported by the [SolAUDD Grant Program](https://superteam.fun/earn) — production-ready Solana infrastructure using AUDD as Australia's on-chain digital dollar.
