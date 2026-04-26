@@ -6,7 +6,7 @@ pub mod state;
 
 use instructions::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM");
 
 #[program]
 pub mod auddshield {
