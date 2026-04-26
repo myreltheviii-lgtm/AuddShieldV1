@@ -1,0 +1,17 @@
+# Rust build artifacts
+target/
+
+# Node
+node_modules/
+yarn-error.log
+
+# Anchor
+.anchor/
+target/
+
+# OS
+.DS_Store
+
+# Env
+.env
+.env.local
