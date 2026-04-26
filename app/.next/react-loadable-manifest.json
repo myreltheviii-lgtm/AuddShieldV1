@@ -1,0 +1,60 @@
+{
+  "../node_modules/@solana/wallet-adapter-solflare/lib/esm/adapter.js -> @solflare-wallet/sdk": {
+    "id": 6959,
+    "files": [
+      "static/chunks/959.9b698c60985aca45.js"
+    ]
+  },
+  "components/CreatePool.tsx -> ../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  },
+  "components/EmergencyRequest.tsx -> ../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  },
+  "components/PoolDashboard.tsx -> ../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  },
+  "components/PoolDashboard.tsx -> ../utils/audd": {
+    "id": 2028,
+    "files": []
+  },
+  "components/PoolDashboard.tsx -> @solana/spl-token": {
+    "id": 8993,
+    "files": [
+      "static/chunks/993.c7e5258dda970940.js"
+    ]
+  },
+  "hooks/useContribute.ts -> ../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  },
+  "hooks/usePool.ts -> ../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  },
+  "hooks/useVote.ts -> ../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  },
+  "pages/pool/[id].tsx -> ../../idl/auddshield.json": {
+    "id": 2944,
+    "files": [
+      "static/chunks/944.319e7894bfd0cbe1.js"
+    ]
+  }
+}
