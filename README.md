@@ -13,6 +13,7 @@ Communities (diaspora groups, churches, trade collectives, informal savings circ
 | Program | `5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM` | [View on Solscan](https://solscan.io/account/5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM?cluster=devnet) |
 | Pool PDA | `5NnwRGQuLZn9ssZJYYHiVxVYDhv6vGqZNrspZYcBVAKw` | [View on Solscan](https://solscan.io/account/5NnwRGQuLZn9ssZJYYHiVxVYDhv6vGqZNrspZYcBVAKw?cluster=devnet) |
 | Vault PDA | `282sy7yhGtiKoagkm1dQjNWZto8BZMLEDrMfyJgabELg` | [View on Solscan](https://solscan.io/account/282sy7yhGtiKoagkm1dQjNWZto8BZMLEDrMfyJgabELg?cluster=devnet) |
+| Pool Name | `AUDDShield Genesis Pool` | — |
 
 ## Program ID
 
