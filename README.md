@@ -1,6 +1,6 @@
 # AUDDShield — Community Mutual Insurance on Solana
 
-A trustless, on-chain mutual insurance protocol powered by [AUDD](https://audd.io) — Australia's fully-backed digital dollar stablecoin — built on Solana.
+A trustless, on-chain mutual insurance protocol powered by [AUDD](https://audd.digital) — Australia's fully-backed digital dollar stablecoin — built on Solana.
 
 Communities (diaspora groups, churches, trade collectives, informal savings circles) pool AUDD together as a shared emergency fund. When a member faces a genuine crisis, they submit a request. The community votes. If the vote passes, the smart contract releases funds automatically — no bank, no admin, no delay.
 
