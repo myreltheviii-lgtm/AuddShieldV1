@@ -11,9 +11,9 @@ Communities (diaspora groups, churches, trade collectives, informal savings circ
 ```
 5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM
 
-> Program is built and ready for mainnet deployment. Devnet deployment pending SOL airdrop availability. Grant funds Milestone 1 mainnet deployment.
+> Program is built and ready for mainnet deployment. Deployed on devnet.
 
-> Program is built and ready for mainnet deployment. Devnet deployment pending SOL airdrop availability. Grant funds Milestone 1 mainnet deployment.
+> Program is built and ready for mainnet deployment. Deployed on devnet.
 ```
 
 ---

@@ -6,14 +6,14 @@
 
 ## Overview
 
-v3 is a flat savings account with governance voting.
+v1 is a flat savings account with governance voting.
 v2 is a mutual insurance protocol with capital efficiency.
 
 The transformation requires changes at four levels:
 
 1. **Account layout** — Pool struct expands, two new accounts created
 2. **Instruction logic** — Six existing instructions break, eight new ones added
-3. **Mathematical layer** — Entire new on-chain financial model (does not exist in v3)
+3. **Mathematical layer** — Entire new on-chain financial model (does not exist in v1)
 4. **Frontend** — IDL changes, new derived state, two-step settlement flow
 
 This document covers Phase 1 only: Active Treasury.
@@ -168,7 +168,7 @@ Yield accrues inside the receipt token. We compute yield = receipt_token_balance
 
 ### 2.1 `submit_request.rs` — Balance Check Rewrite (BREAKING)
 
-**v3 check (WRONG in v2):**
+**v1 check (WRONG in v2):**
 ```rust
 require!(amount_requested <= ctx.accounts.pool.total_balance, ...);
 ```
@@ -193,7 +193,7 @@ pool.pending_claims_total = pool.pending_claims_total
     .ok_or(AuddShieldError::Overflow)?;
 ```
 
-This is a new write that did not exist in v3. Every `submit_request` now
+This is a new write that did not exist in v1. Every `submit_request` now
 locks that amount out of deployable capital.
 
 ---
@@ -215,7 +215,7 @@ that blocks capital deployment.
 
 ### 2.3 `release_funds.rs` — Liquid Balance Check + pending_claims_total (BREAKING)
 
-This is the most dangerous change. v3 checks:
+This is the most dangerous change. v1 checks:
 ```rust
 require!(amount <= ctx.accounts.pool.total_balance, ...);
 ```
@@ -240,7 +240,7 @@ Liquid balance is insufficient because capital is deployed.
 `release_funds` fails with `InsufficientLiquidBalance`.
 Caller must first call `recall_from_strategy`, then retry `release_funds`.
 
-This is a two-step settlement flow that does not exist in v3.
+This is a two-step settlement flow that does not exist in v1.
 Frontend must handle it. See Part 4: Frontend Changes.
 
 **Yield on recall must NOT inflate pool.total_balance before settlement:**
@@ -304,7 +304,7 @@ after frontend migration is confirmed complete.
 
 ## Part 3: New Mathematical Layer
 
-This is the section that does not exist anywhere in v3.
+This is the section that does not exist anywhere in v1.
 Every formula below is new on-chain logic.
 
 ---
@@ -935,7 +935,7 @@ const settle = async () => {
         toast.success("Capital recalled. Settling now...");
     }
 
-    // Step 2: release funds (was step 1 in v3)
+    // Step 2: release funds (was step 1 in v1)
     await callReleaseFunds(pool, request);
 };
 ```
@@ -966,7 +966,7 @@ Displays:
 ### 6.5 IDL Migration Sequence (Exact)
 
 ```
-Old frontend with old IDL serves old program  ← we are here (v3)
+Old frontend with old IDL serves old program  ← we are here (v1)
 
 Step 1: Build new program
     anchor build
@@ -985,7 +985,7 @@ Step 3: Migrate each pool (admin calls migrate_pool_v2)
         call migrate_pool_v2
         call init_treasury_config
 
-    Pools NOT yet migrated: v3 instructions still work on them
+    Pools NOT yet migrated: v1 instructions still work on them
     (no treasury ops available, but join/vote/contribute/request are fine).
 
 Step 4: Update frontend IDL
@@ -994,7 +994,7 @@ Step 4: Update frontend IDL
     npm run deploy
 
     At this moment: frontend can interact with both migrated (v2) and
-    unmigrated (v3) pools. The PoolData interface must handle missing
+    unmigrated (v1) pools. The PoolData interface must handle missing
     treasury fields gracefully:
 
     treasuryDeployed:    rawPool.treasuryDeployed?.toNumber() ?? 0,
