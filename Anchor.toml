@@ -3,16 +3,16 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-auddshield = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+auddshield = "5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM"
 
 [programs.devnet]
-auddshield = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+auddshield = "5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "devnet"
+cluster = "localnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
