@@ -41,7 +41,7 @@ import path from "path";
 // ─── Constants ──────────────────────────────────────────────────────────────
 
 const PROGRAM_ID           = new PublicKey("5HQgDy3tkLkmT6JeFYem9dCiS3ye9CpHznoVtNhTsifM");
-const POOL_NAME            = "Sydney Naija Community";
+const POOL_NAME = "Sydney Naija Community 2";
 const MIN_CONTRIBUTION     = new anchor.BN(10_000_000);  // 10 AUDD
 const VOTE_THRESHOLD       = 60;
 const MAX_MEMBERS          = 50;
@@ -118,7 +118,7 @@ async function setup(connection: Connection) {
   log("Funding member wallets from admin...");
   for (const kp of [member1, member2, member3]) {
     // Transfer SOL from admin to each member for tx fees
-    const transferTx = new anchor.web3.Transaction().add(anchor.web3.SystemProgram.transfer({ fromPubkey: admin.publicKey, toPubkey: kp.publicKey, lamports: LAMPORTS_PER_SOL / 2 })); const tx = await anchor.web3.sendAndConfirmTransaction(connection, transferTx, [admin]);
+    const transferTx = new anchor.web3.Transaction().add(anchor.web3.SystemProgram.transfer({ fromPubkey: admin.publicKey, toPubkey: kp.publicKey, lamports: LAMPORTS_PER_SOL / 10 })); const tx = await anchor.web3.sendAndConfirmTransaction(connection, transferTx, [admin]);
     
     console.log(`  💸 Funded ${kp.publicKey.toBase58().slice(0, 8)}... with 2 SOL`);
   }
@@ -295,8 +295,8 @@ async function main() {
   }
 
   const votedRequest = await (program.account as any).emergencyRequest.fetch(requestPda);
-  const totalWeight  = votedRequest.yesWeight + votedRequest.noWeight;
-  const yesPct       = totalWeight > 0 ? (votedRequest.yesWeight * 100) / totalWeight : 0;
+  const totalWeight  = votedRequest.yesWeight.toNumber() + votedRequest.noWeight.toNumber();
+  const yesPct       = totalWeight > 0 ? (votedRequest.yesWeight.toNumber() * 100) / totalWeight : 0;
   console.log(`\n  Yes votes:   ${votedRequest.yesVotes}`);
   console.log(`  Yes weight:  ${votedRequest.yesWeight}`);
   console.log(`  Approval:    ${yesPct}% (threshold: ${votedRequest.effectiveThreshold}%)`);
