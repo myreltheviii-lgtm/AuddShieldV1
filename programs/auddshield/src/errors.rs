@@ -98,4 +98,19 @@ pub enum AuddShieldError {
 
     #[msg("Token account mint does not match the pool's AUDD mint")]
     InvalidTokenMint,               // 6028 — caller passed a non-AUDD token account
+
+    // ─── V2 Treasury errors ───────────────────────────────────────────────
+    //
+    // Error codes 6029 onwards are V2-only. They are never reachable from
+    // V1 instructions. Adding them here does not break any existing client
+    // that only handles V1 error codes — unknown codes are simply unmatched.
+
+    #[msg("Insufficient liquid balance — the requested amount exceeds instantly available AUDD. Some capital may be deployed to yield strategies and must be recalled first.")]
+    InsufficientLiquidBalance,      // 6029 — total_balance ok but capital is deployed
+
+    #[msg("Treasury not initialised — call init_treasury_config before deploying capital")]
+    TreasuryNotInitialized,         // 6030 — deploy/recall blocked until config exists
+
+    #[msg("Yield protocol returned less than deposited — protocol loss event")]
+    NegativeYield,                  // 6031 — receipt token value < deposited principal
 }
